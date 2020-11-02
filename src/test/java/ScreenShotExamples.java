@@ -8,11 +8,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class ScreenShotExamples {
 
     final static String PROJECT_PATH = System.getProperty("user.dir");
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
         WebDriver driver = null;
 
         System.setProperty("webdriver.chrome.driver", PROJECT_PATH+ "/src/main/resources/chromedriver");
@@ -35,6 +40,15 @@ public class ScreenShotExamples {
         File src = ff.getFullPageScreenshotAs(OutputType.FILE);
         File destFile1 =new File("ytFLandingPage.png");
         FileUtils.copyFile(src,destFile1);
+
+        Path path = Paths.get(PROJECT_PATH+"/src/main/resources/video_downloadhelper-7.3.5-an+fx.xpi");
+
+        String addon_id= ff.installExtension(path);
+
+        Thread.sleep(10000);
+
+        ff.uninstallExtension(addon_id);
+
 
     }
 }
