@@ -1,4 +1,5 @@
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,7 +21,7 @@ public class CapabilitiesExample {
 
     public static void main(String[] args) throws IOException {
 
-        System.setProperty("webdriver.chrome.driver", PROJECT_PATH+ "/src/main/resources/chromedriver");
+        WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
