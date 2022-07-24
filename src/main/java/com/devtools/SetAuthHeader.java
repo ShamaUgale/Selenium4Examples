@@ -1,5 +1,6 @@
 package com.devtools;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public class SetAuthHeader {
     final static String PROJECT_PATH = System.getProperty("user.dir");
 
     public static void main(String[] args){
-        System.setProperty("webdriver.chrome.driver", PROJECT_PATH + "/src/main/resources/chromedriver");
+        WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
         chromeDevTools = driver.getDevTools();

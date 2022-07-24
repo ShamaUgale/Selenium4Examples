@@ -1,5 +1,6 @@
 package com.devtools;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class SetDeviceMode {
     final static String PROJECT_PATH = System.getProperty("user.dir");
 
     public static void main(String[] args){
-        System.setProperty("webdriver.chrome.driver", PROJECT_PATH + "/src/main/resources/chromedriver");
+        WebDriverManager.chromedriver().setup();
 
         DevTools devTools;
         ChromeDriver driver;
